@@ -1,0 +1,88 @@
+{
+  "name": "GCP Incident Manager Agent",
+  "description": "Google Cloud Incident Manager Agent for alert and incident triage, Cloud Logging root-cause correlation, Cloud Support case inspection, and official GCP remediation lookup.",
+  "version": "1.0.0",
+  "capabilities": {
+    "streaming": true,
+    "pushNotifications": false
+  },
+  "securitySchemes": {
+    "bearer": {
+      "httpAuthSecurityScheme": {
+        "scheme": "Bearer"
+      }
+    }
+  },
+  "securityRequirements": [
+    {
+      "schemes": {
+        "bearer": {
+          "list": []
+        }
+      }
+    }
+  ],
+  "defaultInputModes": [
+    "text/plain",
+    "application/json"
+  ],
+  "defaultOutputModes": [
+    "text/plain",
+    "application/json"
+  ],
+  "skills": [
+    {
+      "id": "gcp_incident_alert_triage",
+      "name": "GCP Alert & Incident Triage",
+      "description": "Inspects active Cloud Monitoring alerts, alert policies, and time-series metrics to triage incidents.",
+      "tags": [
+        "gcp",
+        "incidents",
+        "alerts",
+        "monitoring",
+        "sre"
+      ],
+      "examples": [
+        "List all active alerts and alert policies in the project and summarize open incidents",
+        "Inspect alert details and metric time series for the firing incident"
+      ]
+    },
+    {
+      "id": "gcp_incident_log_case_correlation",
+      "name": "Cloud Logging & Support Case Correlation",
+      "description": "Correlates Cloud Logging error/audit entries and Cloud Support cases/comments during incident investigation.",
+      "tags": [
+        "gcp",
+        "logging",
+        "support",
+        "rca",
+        "diagnostics"
+      ],
+      "examples": [
+        "Correlate recent severity>=ERROR logs with active alerts and check open Cloud Support cases"
+      ]
+    },
+    {
+      "id": "gcp_knowledge_remediation",
+      "name": "GCP Troubleshooting & Remediation Lookup",
+      "description": "Searches official Google Cloud documentation for incident remediation guides and SRE best practices.",
+      "tags": [
+        "gcp",
+        "documentation",
+        "knowledge",
+        "remediation",
+        "best-practices"
+      ],
+      "examples": [
+        "Find official GCP troubleshooting steps for resolving this incident"
+      ]
+    }
+  ],
+  "supportedInterfaces": [
+    {
+      "url": "https://localhost:8080",
+      "protocolBinding": "JSONRPC",
+      "protocolVersion": "1.0"
+    }
+  ]
+}
